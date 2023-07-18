@@ -17,45 +17,45 @@ tiling.set('layouts', {
 -- TODO: maybe prefer http://www.hammerspoon.org/docs/hs.grid.html
 local positions = {
   maximized = hs.layout.maximized,
-  centered = {x=0.34, y=0, w=0.33, h=1},
+  centered = {x=0.33, y=0, w=0.34, h=1},
 
-  left34 = {x=0, y=0, w=0.34, h=1},
+  left33 = {x=0, y=0, w=0.33, h=1},
   left50 = hs.layout.left50,
-  left66 = {x=0, y=0, w=0.66, h=1},
+  left67 = {x=0, y=0, w=0.67, h=1},
 
-  right34 = {x=0.66, y=0, w=0.34, h=1},
+  right33 = {x=0.67, y=0, w=0.33, h=1},
   right50 = hs.layout.right50,
-  right66 = {x=0.34, y=0, w=0.66, h=1},
+  right67 = {x=0.33, y=0, w=0.67, h=1},
 
   upper50 = {x=0, y=0, w=1, h=0.5},
-  upper50Left34 = {x=0, y=0, w=0.34, h=0.5},
-  upper50Left66 = {x=0, y=0, w=0.66, h=0.5},
+  upper50Left33 = {x=0, y=0, w=0.33, h=0.5},
+  upper50Left67 = {x=0, y=0, w=0.67, h=0.5},
   upper50Left50 = {x=0, y=0, w=0.5, h=0.5},
   upper50Right50 = {x=0.5, y=0, w=0.5, h=0.5},
-  upper50Right34 = {x=0.66, y=0, w=0.34, h=0.5},
-  upper50Right66 = {x=0.34, y=0, w=0.66, h=0.5},
+  upper50Right33 = {x=0.67, y=0, w=0.33, h=0.5},
+  upper50Right67 = {x=0.33, y=0, w=0.67, h=0.5},
 
   lower50 = {x=0, y=0.5, w=1, h=0.5},
   lower50Left50 = {x=0, y=0.5, w=0.5, h=0.5},
-  lower50Left34 = {x=0, y=0.5, w=0.34, h=0.5},
-  lower50Left66 = {x=0, y=0.5, w=0.66, h=0.5},
+  lower50Left33 = {x=0, y=0.5, w=0.33, h=0.5},
+  lower50Left67 = {x=0, y=0.5, w=0.67, h=0.5},
   lower50Right50 = {x=0.5, y=0.5, w=0.5, h=0.5},
-  lower50Right34 = {x=0.66, y=0.5, w=0.34, h=0.5},
-  lower50Right66 = {x=0.34, y=0.5, w=0.66, h=0.5}
+  lower50Right33 = {x=0.67, y=0.5, w=0.33, h=0.5},
+  lower50Right67 = {x=0.33, y=0.5, w=0.67, h=0.5}
 }
 
 local grid = {
-  {key="q", units={positions.upper50Left50, positions.upper50Left66, positions.upper50Left34}},
+  {key="q", units={positions.upper50Left50, positions.upper50Left67, positions.upper50Left33}},
   {key="w", units={positions.upper50}},
-  {key="e", units={positions.upper50Right50, positions.upper50Right66, positions.upper50Right34}},
+  {key="e", units={positions.upper50Right50, positions.upper50Right67, positions.upper50Right33}},
 
-  {key="a", units={positions.left50, positions.left66, positions.left34}},
+  {key="a", units={positions.left50, positions.left67, positions.left33}},
   {key="s", units={positions.maximized, positions.centered}},
-  {key="d", units={positions.right50, positions.right66, positions.right34}},
+  {key="d", units={positions.right50, positions.right67, positions.right33}},
 
-  {key="z", units={positions.lower50Left50, positions.lower50Left66, positions.lower50Left34}},
+  {key="z", units={positions.lower50Left50, positions.lower50Left67, positions.lower50Left33}},
   {key="x", units={positions.lower50}},
-  {key="c", units={positions.lower50Right50, positions.lower50Right66, positions.lower50Right34}}
+  {key="c", units={positions.lower50Right50, positions.lower50Right67, positions.lower50Right33}}
 }
 
 local rectToGeom = function(unit)
