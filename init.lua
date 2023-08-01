@@ -113,3 +113,22 @@ hotkey.bind(mash, "p", function()
                local allScreenWindows = {window, table.unpack(window:otherWindowsSameScreen())}
                hs.window.tiling.tileWindows(allScreenWindows, window:screen():fullFrame())
 end)
+
+
+
+-- Stop and start NepTunes scrobbler with Music
+local applicationWatcher = function(appName, eventType, appObject)
+  if (appName == "Music") then
+    if (eventType == hs.application.watcher.launched) then
+      hs.application.launchOrFocus("NepTunes")
+    elseif (eventType == hs.application.watcher.terminated) then
+      local app = hs.appfinder.appFromName("NepTunes")
+      if app then
+        app:kill()
+      end
+    end
+  end
+end
+
+local musicWatcher = hs.application.watcher.new(applicationWatcher)
+musicWatcher:start()
