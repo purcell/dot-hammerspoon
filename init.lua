@@ -1,18 +1,6 @@
 local hotkey = require "hs.hotkey"
 local mash = {"ctrl", "cmd", "alt"}
 
--- https://github.com/dsanson/hs.tiling
-local tiling = require "hs.tiling"
-hotkey.bind(mash, "i", function() tiling.cycleLayout() end)
-hotkey.bind(mash, "l", function() tiling.cycle(1) end)
-hotkey.bind(mash, "j", function() tiling.cycle(-1) end)
-hotkey.bind(mash, "k", function() tiling.promote() end)
-hotkey.bind(mash, "f", function() tiling.goToLayout("fullscreen") end)
-
-tiling.set('layouts', {
-  'fullscreen', 'main-vertical', 'gp-vertical', 'columns'
-})
-
 -- https://aaronlasseigne.com/2016/02/16/switching-from-slate-to-hammerspoon/
 -- TODO: maybe prefer http://www.hammerspoon.org/docs/hs.grid.html
 local positions = {
@@ -99,22 +87,6 @@ hotkey.bind(mash, "/", function()
        window:moveToScreen(otherScreen)
     end
 end)
-
--- hs.window.highlight.ui.overlay = true
--- hs.window.highlight.ui.overlayColor = {0,0,0,0.0000000001}
--- hs.window.highlight.ui.frameWidth = 3 -- seems to only work if overlayColor is non-transparent
--- hs.window.highlight.ui.frameColor = {1,0,0,1}
--- hs.window.highlight.start()
-
-
--- Trying out hs.window.tiling
-hotkey.bind(mash, "p", function()
-               local window = hs.window.focusedWindow()
-               local allScreenWindows = {window, table.unpack(window:otherWindowsSameScreen())}
-               hs.window.tiling.tileWindows(allScreenWindows, window:screen():fullFrame())
-end)
-
-
 
 -- Stop and start NepTunes scrobbler with Music
 local applicationWatcher = function(appName, eventType, appObject)
