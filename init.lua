@@ -56,9 +56,8 @@ local grid = {
   {key="c", units={positions.lower50Right50, positions.lower50Right67, positions.lower50Right33}}
 }
 
-local rectToGeom = function(unit)
-  local screen = hs.screen.mainScreen()
-  return hs.geometry.new(unit):fromUnitRect(screen:frame()):floor()
+local rectToGeom = function(screen, unitRect)
+  return screen:fromUnitRect(unitRect):floor()
 end
 
 hs.fnutils.each(grid, function(entry)
@@ -70,7 +69,8 @@ hs.fnutils.each(grid, function(entry)
     local index = 0
     hs.fnutils.find(units, function(unit)
       index = index + 1
-      local geo = rectToGeom(unit)
+      local screen = window:screen()
+      local geo = rectToGeom(screen, unit)
       return windowGeo:equals(geo)
     end)
     if index == #units then index = 0 end
