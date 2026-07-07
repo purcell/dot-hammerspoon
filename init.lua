@@ -74,17 +74,19 @@ hs.fnutils.each(grid, function(entry)
       return windowGeo:equals(geo)
     end)
     if index == #units then index = 0 end
-    window:moveToUnit(units[index + 1])
+    window:moveToUnit(units[index + 1], 0)
   end)
 end)
 
+
 hotkey.bind(mash, "/", function()
     local window = hs.window.focusedWindow()
-    local otherScreen = hs.fnutils.find(hs.screen.allScreens(), function(s)
-                                           return s ~= window:screen()
-    end)
+    local thisScreen = window:screen()
+    local otherScreen = hs.fnutils.find(hs.screen.allScreens(), function(s) return s ~= thisScreen end)
     if otherScreen ~= nil then
-       window:moveToScreen(otherScreen)
+        local unitrect = thisScreen:toUnitRect(window:frame())
+        local frame = rectToGeom(otherScreen, unitrect)
+        window:setFrame(frame, 0)
     end
 end)
 
