@@ -90,3 +90,12 @@ hotkey.bind(mash, "/", function()
     end
 end)
 
+
+hs.hotkey.bind(mash, "f", function() hs.application.launchOrFocus("Firefox") end)
+hs.hotkey.bind(mash, "g", function() hs.application.launchOrFocus("Logseq") end)
+hs.hotkey.bind(mash, "i", function() hs.application.launchOrFocus("Finder") end)
+hs.hotkey.bind(mash, "k", function() hs.application.launchOrFocus("Slack") end)
+hs.hotkey.bind(mash, "l", function() hs.application.launchOrFocus("Calendar") end)
+hs.hotkey.bind(mash, "m", function() hs.application.launchOrFocus("Emacs") end)
+hs.hotkey.bind(mash, "t", function() hs.application.launchOrFocus("Ghostty") end)
+
